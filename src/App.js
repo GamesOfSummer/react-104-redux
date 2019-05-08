@@ -1,14 +1,20 @@
 import React from 'react';
-
+import Slider from './Slider';
 import './App.css';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import combineReducers from './reducers/app';
 
-import Clock from './Clock.jsx';
+const store = createStore(combineReducers);
 
 function App() {
     return (
-        <div className="App">
-            <Clock date={new Date()} />
-        </div>
+        <Provider store={store}>
+            <div className="App">
+                <Slider />
+            </div>
+        </Provider>
     );
 }
 
