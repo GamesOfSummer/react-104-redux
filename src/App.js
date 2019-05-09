@@ -1,18 +1,24 @@
 import React from 'react';
-import Slider from './Slider';
-import './App.css';
-import { render } from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import combineReducers from './reducers/app';
 
-const store = createStore(combineReducers);
+import './App.css';
+
+import AddTodo from './AddTodo';
+
+import { Provider } from 'react-redux';
+
+import OutputStore from './OutputStore';
+
+import { createStore } from 'redux';
+import { reducer } from './redux/reducer/reducer';
+
+export const store = createStore(reducer);
 
 function App() {
     return (
         <Provider store={store}>
             <div className="App">
-                <Slider />
+                <AddTodo />
+                <OutputStore />
             </div>
         </Provider>
     );
