@@ -13,13 +13,22 @@ class OutputStore extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            taskstd: []
+            tasks: []
         };
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentWillMount() {
         let fullStore = store.getState();
         console.log('The store in todos-p: ', fullStore);
+        this.setState({ tasks: fullStore.todos });
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        let fullStore = store.getState();
+        console.log('The store in todos-p: ', fullStore);
+
         this.setState({ tasks: fullStore.todos });
     }
 
@@ -31,9 +40,13 @@ class OutputStore extends Component {
 
                 <ul>
                     {this.state.tasks.map(tasks => {
-                        return <li key={tasks.index}>{tasks.task}</li>;
+                        return <li key={tasks.index}>{tasks.text}</li>;
                     })}
                 </ul>
+
+                <a href="#" onClick={this.handleClick}>
+                    Click me
+                </a>
             </div>
         );
     }
