@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Redux things
 import { connect } from 'react-redux';
@@ -35,11 +35,10 @@ class AddTodo extends React.Component {
         return (
             <div>
                 <h1>Page Home</h1>
-                <p>Here you add the tasks to the list... a</p>
-                <br />
+                <p>Here you add the tasks to the list... </p>
 
                 <h4>
-                    You curriently have: {this.state.numberoftasks} task to do.
+                    You currently have: {this.state.numberoftasks} task to do.
                 </h4>
 
                 <div>

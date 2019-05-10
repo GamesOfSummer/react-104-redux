@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { store } from './redux/store';
 
 const stateReturner = state => {
-    console.log('The STATE: ', state);
+    //console.log('The STATE: ', state);
     return state;
 };
 
@@ -18,24 +18,22 @@ class OutputStore extends Component {
     }
 
     componentWillMount() {
-        let fullRxStore = store.getState();
-        console.log('The store in todos-p: ', fullRxStore);
-        this.setState({ taskstd: fullRxStore.todos });
+        let fullStore = store.getState();
+        console.log('The store in todos-p: ', fullStore);
+        this.setState({ tasks: fullStore.todos });
     }
+
     render() {
         return (
             <div>
-                <h2>List of Todos - k</h2>
-                <br />
+                <h2>List - </h2>
                 <br />
 
-                {this.state.taskstd.map(x => {
-                    return (
-                        <div>
-                            <div>Task: {x.task}</div>
-                        </div>
-                    );
-                })}
+                <ul>
+                    {this.state.tasks.map(tasks => {
+                        return <li key={tasks.index}>{tasks.task}</li>;
+                    })}
+                </ul>
             </div>
         );
     }

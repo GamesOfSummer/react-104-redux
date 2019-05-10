@@ -2,9 +2,9 @@ import { ADDTASK } from './key-strings';
 
 const initialState = {
     todos: [
-        { task: 'clean room !', finish: false },
-        { task: 'wash dishes !!', finish: false },
-        { task: 'do homework !!!', finish: false }
+        { index: 1, task: 'clean room !', finish: false },
+        { index: 2, task: 'wash dishes !!', finish: false },
+        { index: 3, task: 'do homework !!!', finish: false }
     ]
 };
 
