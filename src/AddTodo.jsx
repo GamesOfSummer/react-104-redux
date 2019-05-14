@@ -1,14 +1,8 @@
 import React from 'react';
-
-// Redux things
 import { connect } from 'react-redux';
 import { store } from './redux/store';
 import { addNewTask } from './redux/actions/actions';
-
-const stateReturner = state => {
-    console.log('The STATE: ', state);
-    return state;
-};
+import OutputStore from './OutputStore';
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -34,9 +28,6 @@ class AddTodo extends React.Component {
     render() {
         return (
             <div>
-                <h1>Page Home</h1>
-                <p>Here you add the tasks to the list... </p>
-
                 <h4>
                     You currently have: {this.state.numberoftasks} task to do.
                 </h4>
@@ -53,9 +44,17 @@ class AddTodo extends React.Component {
                     <br />
                     <button onClick={this.addTask}>Add Todo</button>
                 </div>
+
+                <OutputStore tasks={this.state.task} />
             </div>
         );
     }
 }
 
-export default connect(stateReturner)(AddTodo);
+function mapStateToProps(state) {
+    const { todos } = state;
+    console.log('mapStateToProps - ' + state);
+    return { todoList: todos.allIds };
+}
+
+export default connect(mapStateToProps)(AddTodo);
