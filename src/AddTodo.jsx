@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { store } from './redux/store';
 import { addNewTask } from './redux/actions/actions';
 import OutputStore from './OutputStore';
@@ -19,7 +18,6 @@ class AddTodo extends React.Component {
     }
 
     addTask = () => {
-        console.log('Task to add: ', this.state.task);
         store.dispatch(addNewTask(this.state.task));
         this.setState({ task: '' });
         this.componentDidMount();
@@ -51,10 +49,4 @@ class AddTodo extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { todos } = state;
-    console.log('mapStateToProps - ' + state);
-    return { todoList: todos.allIds };
-}
-
-export default connect(mapStateToProps)(AddTodo);
+export default AddTodo;

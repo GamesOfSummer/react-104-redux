@@ -10,7 +10,7 @@ export const store = createStore(reducer);
 function App() {
     return (
         <Provider store={store}>
-            <div className="App">
+            <div>
                 <AddTodo />
             </div>
         </Provider>

@@ -1,5 +1,3 @@
-import { ADDTASK } from './key-strings';
-
 const initialState = {
     todos: [
         { index: 1, text: 'clean room !', finish: false },
@@ -10,7 +8,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADDTASK:
+        case 'ADDTASK':
             state.todos.push({
                 index: (((1 + Math.random()) * 0x10000) | 0)
                     .toString(16)
