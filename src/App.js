@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './App.css';
 import AddTodo from './AddTodo';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
